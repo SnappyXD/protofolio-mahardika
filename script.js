@@ -1,9 +1,9 @@
 // Efek Mengetik untuk teks Hero
 const typedTextSpan = document.querySelector(".typing-text span");
-const textArray = ["Software Developer", "Data Analyst", "Tech Enthusiast"];
+const textArray = ["Frontend Developer", "Designer", "Creative Enthusiast"];
 const typingDelay = 100;
-const erasingDelay = 50;
-const newTextDelay = 2000; // Jeda antar kata
+const erasingDelay = 60; // Sedikit lebih lambat saat menghapus
+const newTextDelay = 1500; // Jeda antar kata yang lebih cepat
 let textArrayIndex = 0;
 let charIndex = 0;
 
@@ -31,4 +31,15 @@ function erase() {
 
 document.addEventListener("DOMContentLoaded", function() {
   if (textArray.length) setTimeout(type, newTextDelay + 250);
+});
+
+// Menambahkan efek Smooth Scroll untuk navigasi yang lebih halus
+document.querySelectorAll('.navbar a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
